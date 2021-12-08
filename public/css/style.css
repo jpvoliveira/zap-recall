@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Roboto';
+
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela-inicio{
+    display: flex;  
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.botao-iniciar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 345px;
+    height: 72px;
+    margin-top: 260px;
+
+    border: 3px solid #FFEF61;
+    box-sizing: border-box;
+    border-radius: 12px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+}
+
+.botao-iniciar img{
+    margin-left: 10px;
+}
