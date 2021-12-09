@@ -46,3 +46,139 @@ body{
 .botao-iniciar img{
     margin-left: 10px;
 }
+
+.tela-flashcards{
+    width: 100vw;
+    height: 100vh;
+}
+
+.tela-flashcards img{
+    margin-left: 32px;
+    margin-top: 22px;
+}
+
+.posicao-card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 80%;
+}
+
+.flashcard{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    width: 392px;
+    height: 575.75px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.12);
+    border-radius: 12px;
+}
+
+.contador{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 12px;
+    margin-right: 12px;
+}
+
+.pergunta{
+    height: 520px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 33px;
+
+}
+
+.proxima{
+    display: flex;
+    justify-content: end;
+}
+
+.proxima img{
+    width: 40px;
+    height: 35px;
+
+    margin-bottom: 20px;
+    margin-right: 17px;
+}
+
+.nota{
+    display: flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+    margin-left: 41px;
+    margin-right: 41px;
+
+    font-size: 11px;
+    line-height: 12px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+
+    color: #000000;
+}
+
+.tipo-nota{
+    width: 65px;
+    height: 48px;
+
+    box-sizing: border-box;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.borda-preta{
+    border: 3px solid #000000;
+}
+
+.borda-vermelha{
+    border: 3px solid #F74848;
+}
+
+.borda-verde{
+    border: 3px solid #62DB38;
+}
+
+.borda-amarela{
+    border: 3px solid #FFEF61;
+}
+
+.cabecalho-card{
+    display: flex;
+    justify-content: center;
+
+}
+
+.pergunta-pequena{
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+
+    padding-left: 45px;
+    width: 347px;
+}
+
+.resposta{
+    display: flex;
+    justify-content: center;
+}

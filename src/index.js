@@ -1,7 +1,5 @@
-import TelaInicio from './TelaInicio'
-
 import ReactDOM from 'react-dom'
-ReactDOM.render(<App/>, document.querySelector(".root"))
+import TelaInicio from './TelaInicio'
 
 function App(){
     return(
@@ -10,3 +8,5 @@ function App(){
         </div>
     )
 }
+
+ReactDOM.render(<App/>, document.querySelector(".root"))
