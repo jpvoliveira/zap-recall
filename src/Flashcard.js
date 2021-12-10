@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import FlashcardResposta from './FlashcardResposta'
 
-export default function Flashcard(){
+export default function Flashcard({index}){
     const itens = [
         {questao:1, pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
         {questao:2, pergunta:"O React é __", resposta:"Uma biblioteca JavaScript para construção de interfaces"},
@@ -13,17 +13,19 @@ export default function Flashcard(){
         {questao:8, pergunta:"Usamos estado (state) para __", resposta:"Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
     ]
     const [verResposta, setVerResposta] = useState(false);
+    
+
     return(
         <div className="flashcard">  
             {verResposta 
             ? 
-            <FlashcardResposta item={itens[1]}/> 
+            <FlashcardResposta item={itens[index]} index={index}/> 
             :
             (
             <>
-                <div className="contador">{itens[1].questao}/8</div>
+                <div className="contador">{itens[index].questao}/8</div>
                 <div className="pergunta">
-                    <p>{itens[1].pergunta}</p>
+                    <p>{itens[index].pergunta}</p>
                 </div>
                 <div className="proxima">
                     <img onClick={()=> setVerResposta(true)} src="./assets/turn.png"></img>

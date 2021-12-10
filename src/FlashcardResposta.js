@@ -1,20 +1,46 @@
 import { useState } from 'react'
-import FlashcardBorda from './FlashcardBorda'
+import Flashcard from './Flashcard'
+import TelaSucesso from './TelaSucesso'
 
 export default function FlashcardResposta(props){
     const [addTurn, setAddTurn] = useState(false);
     const [corBorda, setCorBorda] = useState("")
+    const [novoCard1, setNovoCard1] = useState(false)
+    const [sucesso, setSucesso] = useState(false)
+
+    let novoIndex = props.index + 1
+    let erro = 0
+    function proximoCard(clique){
+        setNovoCard1(clique)
+    }
 
     function clicado(clique, borda){
         setAddTurn(clique)
         setCorBorda(borda)
-
-        // if(borda !== "borda-verde"){
-        //     let erro = erro + 1
-        // }
+        if(borda !== "borda-verde"){
+            erro = erro + 1
+            console.log(erro)
+        }
+        if(novoIndex < 8){
+            //Renderiza o proximo card
+        // } else if (erro===0){
+        //     //Renderiza tela de sucesso
+        } else {
+            setSucesso(true)
+        }
     }
 
     return(
+        <>
+        {sucesso
+        ?
+        <TelaSucesso/>
+        :
+        <>
+        {novoCard1
+        ?
+        <Flashcard index={novoIndex}/>
+        :
         <div className={"flashcard "+corBorda}>
             <div className="cabecalho-card">
                 <div className="pergunta-pequena">{props.item.pergunta}</div> 
@@ -25,12 +51,18 @@ export default function FlashcardResposta(props){
             </div>
             {addTurn
             ? 
-            <FlashcardBorda/> 
+            <div className="proxima">
+                <img onClick={()=>proximoCard(true)} src="./assets/turn.png"></img>
+            </div>
             :
             (
             <Nota clicado={clicado}/>
             )}
         </div>
+        }
+        </>
+        }
+        </>
     )
 }
 

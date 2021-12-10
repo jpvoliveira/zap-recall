@@ -91,6 +91,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
 
     font-style: normal;
     font-weight: bold;
@@ -181,4 +182,5 @@ body{
 .resposta{
     display: flex;
     justify-content: center;
+    text-align: center;
 }
