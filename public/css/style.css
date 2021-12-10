@@ -184,3 +184,22 @@ body{
     justify-content: center;
     text-align: center;
 }
+
+.sucesso{
+    background-color: red;
+}
+
+.tela-sucesso{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    background-color: white;
+}
+
+.tela-sucesso img{
+    margin-left: 32px;
+    margin-top: 22px;
+}

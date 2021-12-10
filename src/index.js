@@ -3,9 +3,7 @@ import TelaInicio from './TelaInicio'
 
 function App(){
     return(
-        <div className="container">
-            <TelaInicio/>
-        </div>
+        <TelaInicio/>
     )
 }
 

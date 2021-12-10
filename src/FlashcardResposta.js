@@ -8,12 +8,12 @@ export default function FlashcardResposta(props){
     const [novoCard1, setNovoCard1] = useState(false)
     const [sucesso, setSucesso] = useState(false)
 
-    let novoIndex = props.index + 1
     let erro = 0
     function proximoCard(clique){
         setNovoCard1(clique)
     }
-
+    
+    let novoIndex = props.index + 1
     function clicado(clique, borda){
         setAddTurn(clique)
         setCorBorda(borda)
@@ -21,25 +21,21 @@ export default function FlashcardResposta(props){
             erro = erro + 1
             console.log(erro)
         }
-        if(novoIndex < 8){
-            //Renderiza o proximo card
-        // } else if (erro===0){
-        //     //Renderiza tela de sucesso
-        } else {
+        if(novoIndex > 7) {
             setSucesso(true)
         }
     }
 
     return(
         <>
-        {sucesso
-        ?
-        <TelaSucesso/>
-        :
-        <>
         {novoCard1
         ?
+        <>
+        {sucesso ? 
+        <TelaSucesso/>:
         <Flashcard index={novoIndex}/>
+        }
+        </>
         :
         <div className={"flashcard "+corBorda}>
             <div className="cabecalho-card">
@@ -55,12 +51,10 @@ export default function FlashcardResposta(props){
                 <img onClick={()=>proximoCard(true)} src="./assets/turn.png"></img>
             </div>
             :
-            (
+            
             <Nota clicado={clicado}/>
-            )}
+            }
         </div>
-        }
-        </>
         }
         </>
     )

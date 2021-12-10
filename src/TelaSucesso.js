@@ -1,7 +1,6 @@
 export default function TelaSucesso(){
     return(
-        <div className="tela-flashcards">
-            <img src="./assets/logo-mini.png"></img>
+        <div className="tela-sucesso">
             <div className="posicao-card">   
                 <div className="textos" >
                     <h1>PARABÉNS!</h1>

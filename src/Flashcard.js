@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import FlashcardResposta from './FlashcardResposta'
 
-export default function Flashcard({index}){
+export default function Flashcard({index, setIndex}){
     const itens = [
         {questao:1, pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
         {questao:2, pergunta:"O React é __", resposta:"Uma biblioteca JavaScript para construção de interfaces"},
@@ -16,13 +16,13 @@ export default function Flashcard({index}){
     
 
     return(
-        <div className="flashcard">  
-            {verResposta 
+        <>
+        {verResposta 
             ? 
-            <FlashcardResposta item={itens[index]} index={index}/> 
+            <FlashcardResposta item={itens[index]} index={index} setIndex={setIndex}/> 
             :
             (
-            <>
+            <div className="flashcard">  
                 <div className="contador">{itens[index].questao}/8</div>
                 <div className="pergunta">
                     <p>{itens[index].pergunta}</p>
@@ -30,8 +30,8 @@ export default function Flashcard({index}){
                 <div className="proxima">
                     <img onClick={()=> setVerResposta(true)} src="./assets/turn.png"></img>
                 </div>
-            </>
+            </div>
             )}
-        </div>
+         </>
     )
 }
