@@ -196,10 +196,26 @@ body{
 
     width: 100%;
     height: 100%;
-    background-color: white;
 }
 
-.tela-sucesso img{
-    margin-left: 32px;
-    margin-top: 22px;
+.emoji{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+}
+.tela-sucesso p{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+}
+
+.tela-sucesso h2{
+    font-style: normal;
+    font-weight: normal;
+    font-size: 22px;
+    line-height: 26px;
+
+    margin-top: 16px;
 }

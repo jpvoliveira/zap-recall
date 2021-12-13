@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Flashcard from './Flashcard'
+import TelaFracasso from './TelaFracasso';
 import TelaSucesso from './TelaSucesso'
 
 export default function FlashcardResposta(props){
@@ -7,33 +8,61 @@ export default function FlashcardResposta(props){
     const [corBorda, setCorBorda] = useState("")
     const [novoCard1, setNovoCard1] = useState(false)
     const [sucesso, setSucesso] = useState(false)
+    const [erro, setErro] = useState(false)
+    let novoIndex = props.index + 1
+    let valorErro = [props.erro]
 
-    let erro = 0
+    if(props.array !== undefined){
+        valorErro = [...props.array,props.erro]
+    }
+    
+    console.log(valorErro)
     function proximoCard(clique){
         setNovoCard1(clique)
     }
-    
-    let novoIndex = props.index + 1
-    function clicado(clique, borda){
-        setAddTurn(clique)
-        setCorBorda(borda)
-        if(borda !== "borda-verde"){
-            erro = erro + 1
-            console.log(erro)
-        }
-        if(novoIndex > 7) {
-            setSucesso(true)
+
+    function eTrue (array) {
+        for (let index = 0; index < array.length; index++) {
+            const element = array[index];
+            if (element === true) {
+                return true
+            }
         }
     }
 
+    function clicado(clique, borda){
+        if(borda === "borda-vermelha" || borda === "borda-preta"){
+            setErro(true)
+        }
+        else{
+            setErro(false)
+        }
+
+        if(novoIndex > 7) {
+            setSucesso(true)
+            valorErro.push(erro)
+        }
+        if(novoIndex.length === 8) {
+            setSucesso(true)
+            console.log(erro)
+        }
+        
+        setAddTurn(clique)
+        setCorBorda(borda)
+        valorErro.push(erro)
+    }
     return(
         <>
         {novoCard1
         ?
         <>
         {sucesso ? 
-        <TelaSucesso/>:
-        <Flashcard index={novoIndex}/>
+                eTrue(valorErro) ?
+                <TelaFracasso/>
+                :
+                <TelaSucesso/>
+            :
+        <Flashcard index={novoIndex} erro={erro} array={valorErro}/>
         }
         </>
         :

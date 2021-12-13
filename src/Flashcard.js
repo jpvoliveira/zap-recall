@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import FlashcardResposta from './FlashcardResposta'
 
-export default function Flashcard({index, setIndex}){
+export default function Flashcard({index, erro, array}){
     const itens = [
         {questao:1, pergunta:"O que é JSX?", resposta:"Uma extensão de linguagem do JavaScript"},
         {questao:2, pergunta:"O React é __", resposta:"Uma biblioteca JavaScript para construção de interfaces"},
@@ -13,13 +13,12 @@ export default function Flashcard({index, setIndex}){
         {questao:8, pergunta:"Usamos estado (state) para __", resposta:"Dizer para o React quais informações quando atualizadas devem renderizar a tela novamente"}
     ]
     const [verResposta, setVerResposta] = useState(false);
-    
 
     return(
         <>
         {verResposta 
             ? 
-            <FlashcardResposta item={itens[index]} index={index} setIndex={setIndex}/> 
+            <FlashcardResposta item={itens[index]} index={index} erro={erro} array={array}/> 
             :
             (
             <div className="flashcard">  
